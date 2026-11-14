@@ -21,3 +21,16 @@ COMMENT 'Managed Volume storing raw incremental CDC JSON files and Auto Loader s
 SHOW SCHEMAS IN fintech_prod;
 
 SHOW VOLUMES IN fintech_prod.raw_landing;
+
+SELECT
+  transaction_id,
+  wallet_id,
+  merchant_id,
+  amount,
+  payment_status,
+  event_timestamp,
+  _rescued_data,
+  source_file,
+  ingested_at
+FROM fintech_prod.bronze.bronze_transactions_cdc
+ORDER BY transaction_id;
